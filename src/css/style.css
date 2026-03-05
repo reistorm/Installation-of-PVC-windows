@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  scrollbar-gutter: stable
 }
 body {
   font-family: "NeoSansCyr-Regular", sans-serif;
@@ -125,15 +126,8 @@ input.error {
 .btn-warning {
   color: #fff;
   background-color: #ff8a17;
-  *background-color: #ff8a17;
-  background-image: -moz-linear-gradient(top, #ffb336, #ff8a17);
-  background-image: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#ffb336),
-    to(#ff8a17)
-  );
+  background-image: linear-gradient(to bottom, #ffb336, #ff8a17);
+  border-color: #ff8a17;
   background-image: -webkit-linear-gradient(top, #ffb336, #ff8a17);
   background-image: -o-linear-gradient(top, #ffb336, #ff8a17);
   background-image: linear-gradient(to bottom, #ffb336, #ff8a17);
@@ -149,20 +143,12 @@ input.error {
 .btn-warning[disabled] {
   color: #fff;
   background-color: #ff8a17;
-  *background-color: #003bb3;
 }
 .btn-success {
   color: #ffffff;
   background-color: #009215;
-  *background-color: #009215;
-  background-image: -moz-linear-gradient(top, #00b51a, #009215);
-  background-image: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#00b51a),
-    to(#009215)
-  );
+  background-image: linear-gradient(top, #00b51a, #009215);
+  border-color: #009215;
   background-image: -webkit-linear-gradient(top, #00b51a, #009215);
   background-image: -o-linear-gradient(top, #00b51a, #009215);
   background-image: linear-gradient(to bottom, #00b51a, #009215);
@@ -178,7 +164,6 @@ input.error {
 .btn-success[disabled] {
   color: #ffffff;
   background-color: #009215;
-  *background-color: #003bb3;
 }
 .btn-lg,
 .btn-group-lg > .btn {
@@ -1026,7 +1011,7 @@ p.services-image_mobile {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: #000 url("../images/loading.gif") no-repeat 50% 50%;
+  /* background: #000 url("../images/loading.gif") no-repeat 50% 50%; */
 }
 .box-modal {
   position: relative;
@@ -1449,7 +1434,7 @@ input.error {
 
 @media only screen and (min-width: 992px) {
   ::-webkit-resizer {
-    background-image: url("");
+    /* background-image: url(""); */
     background-repeat: no-repeat;
     height: 1px;
     width: 8px;
@@ -1458,7 +1443,7 @@ input.error {
     width: 8px;
   }
   ::-webkit-scrollbar-button {
-    background-image: url("");
+    /* background-image: url(""); */
     background-repat: no-repeat;
     height: 0px;
     width: 8px;
@@ -1532,6 +1517,11 @@ input.error {
 }
 .header-modal {
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
 
 .services-modal {
@@ -1546,13 +1536,13 @@ input.error {
   z-index: 9999;
 }
 
-.header-modal--opened {
+/* .header-modal--opened {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-}
+} */
 
 .header-modal__close {
   position: absolute;
@@ -1582,10 +1572,10 @@ input.error {
   display: none;
   position: fixed;
   top: 0;
+  height: 100%;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.45);
 }
