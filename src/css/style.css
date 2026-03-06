@@ -1618,7 +1618,7 @@ input.error {
 
 .native-slider {
   width: 100%;
-  overflow: hidden; /* Скрываем то, что выходит за края */
+  overflow: hidden; 
   position: relative;
 }
 
