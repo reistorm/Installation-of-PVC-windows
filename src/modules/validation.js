@@ -34,6 +34,14 @@ const validation = () => {
                 name: formNameValue,
                 phone: formPhoneValue
             }
+            const calcType = document.getElementById('calc-type');
+            const calcTypeMaterial = document.getElementById('calc-type-material');
+            const calcInput = document.getElementById('calc-input');
+            const calcTotal = document.getElementById('calc-total')
+
+            if (calcTotal && calcTotal.value) {
+                formData['calc-total'] = calcTotal.value
+            }
 
             fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: 'POST',
@@ -51,6 +59,10 @@ const validation = () => {
                 .then(() => {
                     alert('Форма успешно отправлена!')
                     e.target.reset();
+                    if (calcType) calcType.value = '--';
+                    if (calcTypeMaterial) calcTypeMaterial.value = '--';
+                    if (calcInput) calcInput.value = '';
+                    if (calcTotal) calcTotal.value = '';
                 })
                 .catch(() => alert('Ошибка при отправке'))
         })

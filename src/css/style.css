@@ -1683,7 +1683,16 @@ input.error {
   position: fixed;
   right: 25px;
   bottom: 25px;
+  cursor: pointer;
   transform: rotate(90deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.smooth-scroll.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 @media (min-width: 576px) {
