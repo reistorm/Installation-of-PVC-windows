@@ -1,5 +1,5 @@
 const validation = () => {
-    const forms = document.querySelectorAll('.form-horizontal')
+    const forms = document.querySelectorAll('form')
 
     forms.forEach((form) => {
         const formName = form.querySelector('.form-name')

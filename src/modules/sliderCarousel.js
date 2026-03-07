@@ -19,13 +19,17 @@ const sliderCarousel = () => {
                 track.style.transition = `transform ${animationDuration}ms ease-in-out`;
                 track.style.transform = `translateX(-${itemWidth}px)`;
 
-                setTimeout(() => {
+                track.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName !== 'transform') return;
+
+                    track.removeEventListener('transitionend', handler);
+
                     track.style.transition = 'none';
                     track.appendChild(track.firstElementChild);
                     track.style.transform = 'translateX(0)';
 
                     isAnimating = false;
-                }, animationDuration);
+                });
             };
 
             const movePrev = () => {
@@ -43,9 +47,12 @@ const sliderCarousel = () => {
                 track.style.transition = `transform ${animationDuration}ms ease-in-out`;
                 track.style.transform = 'translateX(0)';
 
-                setTimeout(() => {
+                track.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName !== 'transform') return;
+
+                    track.removeEventListener('transitionend', handler);
                     isAnimating = false;
-                }, animationDuration);
+                });
             };
 
             btnNext.addEventListener('click', moveNext);
