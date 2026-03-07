@@ -10,6 +10,8 @@ const timer = (deadline) => {
         let interval;
 
         const getTimeRemaining = () => {
+            const addZero = (num) => num < 10 ? '0' + num : num;
+
             let dateStop = new Date(deadline).getTime()
             let dateNow = new Date().getTime()
             let timeRemaining = (dateStop - dateNow) / 1000
@@ -19,9 +21,9 @@ const timer = (deadline) => {
             let fminutes = Math.floor((timeRemaining / 60) % 60)
             let fseconds = Math.floor(timeRemaining % 60)
 
-            const hours = fhours < 10 ? '0' + fhours : fhours;
-            const minutes = fminutes < 10 ? '0' + fminutes : fminutes;
-            const seconds = fseconds < 10 ? '0' + fseconds : fseconds;
+            const hours = addZero(fhours)
+            const minutes = addZero(fminutes)
+            const seconds = addZero(fseconds)
 
             return { timeRemaining, days, hours, minutes, seconds }
         }
